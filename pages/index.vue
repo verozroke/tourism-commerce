@@ -1,10 +1,12 @@
 <template>
   <div class="absolute inset-0 py-28">
     <HomeText />
+    <HomeDestination />
+    <HomeTourGuides />
     <HomeCheckAll />
-
     <HomeLogos />
     <HomeContactUs />
+
 
   </div>
 </template>

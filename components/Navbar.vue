@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 inset-x-0 h-fit  bg-white z-10 py-8">
+  <div class="fixed top-0 inset-x-0 h-fit shadow-md  bg-white z-10 py-8">
     <div class="container flex items-center gap-24">
       <nuxt-link to="/">
         <h1 class="text-3xl font-semibold text-oxford">TimberWolf</h1>
