@@ -1,10 +1,7 @@
 <template>
-  <div>
+  <div class="flex flex-col">
     <Navbar />
-    <NuxtPage v-slot="{ Component }">
-      <transition name="routering" mode="out-in">
-        <component :is="Component"></component>
-      </transition>
+    <NuxtPage>
     </NuxtPage>
   </div>
 </template>
@@ -17,22 +14,23 @@ register();
 
 
 <style>
-.routering-enter-from {
+.page-enter-from {
   opacity: 0;
   transform: translateX(1000px);
 }
 
-
-.routering-enter-active {
+.page-enter-active {
+  filter: blur(2px);
   transition: all 0.3s ease-out;
 }
 
-.routering-leave-to {
+.page-leave-to {
   opacity: 0;
   transform: translateX(-1000px);
 }
 
-.routering-leave-active {
+.page-leave-active {
+  filter: blur(2px);
   transition: all 0.3s ease-in;
 }
 </style>
