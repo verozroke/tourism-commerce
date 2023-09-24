@@ -8,3 +8,5 @@ export type TourInfo = {
   duration: string
   imageUrl: string
 }
+
+export type rangeValue = number
