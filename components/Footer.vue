@@ -7,7 +7,7 @@
       </div>
       <div class="flex flex-col gap-6">
         <div class="flex items-stretch gap-6">
-          <svg xmlns="http://www.w3.org/2000/svg" class="elevation-2 rounded-full" width="80" height="80"
+          <svg xmlns="http: //www.w3.org/2000/svg" class="elevation-2 rounded-full" width="80" height="80"
             viewBox="0 0 80 80" fill="none">
             <circle cx="40" cy="40" r="40" fill="#28B0A6" />
             <path

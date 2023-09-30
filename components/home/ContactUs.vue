@@ -1,11 +1,11 @@
 <template>
-  <div class="flex container flex-col items-center w-full py-20 gap-4">
-    <h1 class="font-bold text-4xl text-center tracking-tight">Still have a question?</h1>
+  <div class="flex container flex-col items-center w-full py-20 gap-4 ">
+    <h1 class="font-bold text-4xl text-center tracking-tight ">Still have a question?</h1>
     <div class="text-2xl text-oxford opacity-70 text-center mb-14">The Brilliant reasons Entrada should be your
       one-stop-shop!
     </div>
     <div class="flex w-full gap-8">
-      <div class="w-[50%] rounded-xl bg-seagreen flex flex-col pt-20 items-center">
+      <div v-ripple class="w-[50%] rounded-xl bg-seagreen flex flex-col pt-20 items-center">
         <div class="h-28 w-28 rounded-full bg-white flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
             <path d="M1 38V23.1996C1 10.939 10.6259 1 22.5 1C34.3741 1 44 10.939 44 23.1996V38" stroke="#28B0A6"
@@ -26,7 +26,7 @@
           +977(985) 456-32-12
         </h3>
       </div>
-      <div class="w-[50%] rounded-xl bg-oxford flex flex-col pt-20 items-center">
+      <div v-ripple class="w-[50%] rounded-xl bg-oxford flex flex-col pt-20 items-center">
         <div class="h-28 w-28 rounded-full bg-white flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
             <path

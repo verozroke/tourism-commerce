@@ -10,3 +10,9 @@ export type TourInfo = {
 }
 
 export type rangeValue = number
+
+
+export type CarouselItem = {
+  id: string
+  src: string
+}
