@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 px-6 py-4 rounded-lg min-w-[400px] flex flex-col">
+  <div class="bg-gray-100 px-6 py-4 rounded-lg min-w-[400px] max-h-[560px] flex flex-col">
     <div class="text-red-400 line-through text-sm leading-5 font-medium">£2469</div>
     <div class="flex items-center">
       <div class="text-oxford text-4xl font-bold mr-2">£1759</div>
