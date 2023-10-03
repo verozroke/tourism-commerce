@@ -154,8 +154,10 @@
 
 <script setup lang="ts">
 import axios from 'axios'
+import { useUserStore } from '~/stores/UserStore';
 import { TourInfo, rangeValue } from '~/types/tour';
 
+const userStore = useUserStore()
 
 const filterMinis = ref([
   {
@@ -309,6 +311,16 @@ const getCards = async () => {
     console.log(err)
   }
 }
+
+const router = useRouter()
+
+onMounted(async () => {
+  await userStore.fetchUser()
+
+  if (!userStore.user) {
+    window.location.pathname = '/login'
+  }
+})
 
 </script>
 

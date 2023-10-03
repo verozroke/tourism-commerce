@@ -11,7 +11,6 @@ import type { DestinationCard } from '~/types/destination.d.ts';
 
 
 
-// TODO create mocka data
 const cards = ref<DestinationCard[]>([
   {
     id: '1',

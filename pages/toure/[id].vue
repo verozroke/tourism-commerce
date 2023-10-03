@@ -106,9 +106,10 @@
 
 
 <script lang="ts" setup>
+import { useUserStore } from '~/stores/UserStore';
 import { CarouselItem } from '~/types/tour';
 
-
+const userStore = useUserStore()
 
 const carouselItems = ref<CarouselItem[]>([
   {
@@ -132,6 +133,11 @@ const carouselItems = ref<CarouselItem[]>([
     src: 'https://images.unsplash.com/photo-1528159597562-ef0695254997?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
   },
 ])
+
+onMounted(async () => {
+  userStore.fetchUser()
+})
+
 
 </script>
 
