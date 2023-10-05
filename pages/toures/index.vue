@@ -6,10 +6,13 @@
           “cultural”</span>
         <span class="text-slate-500 leading-5">Sort by:</span>
         <div class="w-[150px]">
-          <v-select density="compact" :hide-details="true" value="Georgia"
-            :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']" variant="outlined"
+          <v-select density="compact" :hide-details="true" color="#28B0A6" value="Rating"
+            :items="['Rating', 'Relevance', 'Price', 'Title']" variant="outlined"
             style="box-shadow: none; !important"></v-select>
         </div>
+        <v-btn icon="mdi-sort-variant" color="#28B0A6" class="text-white" size="small">
+
+        </v-btn>
       </div>
       <div class="grid gap-x-8 grid-cols-6">
         <FilterMiniCard v-for="filterMini in filterMinis" :key="filterMini.id" :icon="filterMini.icon"
@@ -56,7 +59,9 @@
           </div>
         </div>
         <div class="grid flex-grow grid-cols-2 gap-y-8 gap-x-8">
-          <TourCard v-for="tour in tourInfos" :key="tour.id" :tour-info="tour" />
+          <span v-if="tourStore.tourInfosLoading">Loading...</span>
+          <TourCard @click="() => router.push(`/toure/${tour.id}`)" v-if="!tourStore.tourInfosLoading"
+            v-for="tour in tourStore.tourInfos" :key="tour.id" :tour-info="tour" />
         </div>
       </div>
       <CarouselButtonRow title="Recently Viewed"
@@ -153,11 +158,16 @@
 </template> 
 
 <script setup lang="ts">
-import axios from 'axios'
+import { useTourStore } from '~/stores/TourStore';
 import { useUserStore } from '~/stores/UserStore';
-import { TourInfo, rangeValue } from '~/types/tour';
+import { rangeValue } from '~/types/tour';
 
 const userStore = useUserStore()
+
+const tourStore = useTourStore()
+
+const router = useRouter()
+
 
 const filterMinis = ref([
   {
@@ -192,73 +202,7 @@ const filterMinis = ref([
   },
 ])
 
-const tourInfos = ref<TourInfo[]>([
-  {
-    id: '1',
-    location: 'Manyara | Lake Eyasi | Ngorongoro | Serengeti visit Village',
-    duration: '8 Days',
-    price: 2080,
-    rate: 4.7,
-    title: 'Tetema Tour',
-    rateAmount: 108,
-    imageUrl: 'https://images.unsplash.com/photo-1505832018823-50331d70d237?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2108&q=80',
-  },
-  {
-    id: '2',
-    location: 'Manyara | Lake Eyasi | Ngorongoro | Serengeti',
-    duration: '7 Days',
-    price: 1820,
-    rate: 4.7,
-    title: 'Pamoja Tour',
-    rateAmount: 108,
-    imageUrl: 'https://images.unsplash.com/photo-1503457574462-bd27054394c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
 
-  },
-  {
-    id: '3',
-    location: 'Tarangire | Lake Manyara | Serengeti Ngorongoro Crater',
-    duration: '6 Days',
-    price: 1560,
-    rate: 4.7,
-    title: 'Rose Tour',
-    rateAmount: 108,
-    imageUrl: 'https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2128&q=80',
-
-  },
-  {
-    id: '4',
-    location: 'Lake Manyara | Serengeti | Ngorongoro Crater',
-    duration: '5 Days',
-    price: 1300,
-    rate: 4.7,
-    title: 'Ansi Tour',
-    rateAmount: 108,
-    imageUrl: 'https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-
-  },
-  {
-    id: '5',
-    location: 'Lake Manyara | Serengeti | Ngorongoro Crater',
-    duration: '4 Days',
-    price: 1040,
-    rate: 4.7,
-    title: 'Lina Tour',
-    rateAmount: 108,
-    imageUrl: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2021&q=80',
-
-  },
-  {
-    id: '6',
-    location: 'Tarangire | Ngorongoro Crater | Lake Manyara',
-    duration: '3 Days',
-    price: 750,
-    rate: 4.7,
-    title: 'Sharma Tour ',
-    rateAmount: 108,
-    imageUrl: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-
-  },
-])
 
 
 
@@ -302,17 +246,8 @@ const minRangeWithDollar = computed(() => `$ ${rangeSliderValue.value[0]}`)
 const maxRangeWithDollar = computed(() => `$ ${rangeSliderValue.value[1]}`)
 
 
-const getCards = async () => {
-  try {
-    const { data } = await axios.get('/tours')
 
-    tourInfos.value = data
-  } catch (err) {
-    console.log(err)
-  }
-}
 
-const router = useRouter()
 
 onMounted(async () => {
   await userStore.fetchUser()
@@ -320,6 +255,8 @@ onMounted(async () => {
   if (!userStore.user) {
     window.location.pathname = '/login'
   }
+
+  await tourStore.getTourInfos()
 })
 
 </script>

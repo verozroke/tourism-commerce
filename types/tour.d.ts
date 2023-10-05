@@ -16,3 +16,9 @@ export type CarouselItem = {
   id: string
   src: string
 }
+
+
+// rating
+// relevance
+// title
+// price

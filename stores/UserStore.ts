@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { useToast } from '~/hooks/use-toast';
 import authService from '~/services/auth.service';
 import { User } from '~/types/user';
 
@@ -6,6 +7,7 @@ import { User } from '~/types/user';
 export const useUserStore = defineStore('userStore', () => {
   const user = ref<User | null>(null)
   const router = useRouter()
+  const { toast } = useToast()
 
   const setUser = (newUser: User) => {
     user.value = newUser
@@ -16,7 +18,7 @@ export const useUserStore = defineStore('userStore', () => {
       const fetchedUser = await authService.fetchUser()
       user.value = fetchedUser
     } catch (err) {
-
+      // toast.error({ message: 'Couldn\'t fetch user' })
 
     }
 
