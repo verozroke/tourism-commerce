@@ -135,9 +135,12 @@ const carouselItems = ref<CarouselItem[]>([
 ])
 
 onMounted(async () => {
-  userStore.fetchUser()
-})
+  await userStore.fetchUser()
 
+  if (!userStore.user) {
+    window.location.pathname = '/login'
+  }
+})
 
 </script>
 

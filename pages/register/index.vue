@@ -14,14 +14,25 @@
 </template>
 
 <script setup lang="ts">
+import { useUserStore } from '~/stores/UserStore';
 
+const userStore = useUserStore()
 
+onMounted(async () => {
+  await userStore.fetchUser()
+
+  if (userStore.user) {
+    window.location.pathname = '/toures'
+  }
+})
 
 </script>
 
 <style>
-html,
+/* FIXME: scroll hidden */
+
+/* html,
 body {
   overflow: hidden;
-}
+} */
 </style>

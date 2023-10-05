@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col">
+    <ToastProvider />
     <Navbar />
     <NuxtPage>
     </NuxtPage>
@@ -9,6 +10,7 @@
 
 <script lang="ts" setup>
 import { register } from 'swiper/element/bundle';
+import ToastProvider from './providers/ToastProvider.vue';
 register();
 </script>
 

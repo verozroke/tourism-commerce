@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import { SubmitEventPromise } from 'vuetify/lib/framework.mjs';
+import { useToast } from '~/hooks/use-toast';
 import authService from '~/services/auth.service';
 
 export type RegisterUserValidator = {
@@ -29,9 +30,9 @@ export type RegisterUserValidator = {
   password: string
 }
 
+const { toast } = useToast()
 const isLoading = ref(false)
 const router = useRouter()
-
 const registerForm = ref(null)
 
 const isValid = async () => {
@@ -61,15 +62,16 @@ const onSubmit = async (e: SubmitEventPromise) => {
       const { message } = await authService.register(payload)
 
       // on success
+      toast.success({ message: 'Registration successful' })
 
       isLoading.value = false
       resetForm()
       router.push('/login')
-      // TODO: snackbar
     } catch (err) {
       // on error
       isLoading.value = false
-      // TODO: destructive snackbar
+      toast.error({ message: 'Something went wrong' })
+
     }
 
   }

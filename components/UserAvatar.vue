@@ -33,12 +33,15 @@
 </template>
 
 <script setup lang="ts">
+import { useToast } from '~/hooks/use-toast';
 import { useUserStore } from '~/stores/UserStore';
 
+const { toast } = useToast()
 const router = useRouter()
 const userStore = useUserStore()
 
 const signOut = () => {
+  toast.success({ message: 'Signed out successfully' })
   userStore.signOut()
 }
 
