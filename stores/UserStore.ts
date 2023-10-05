@@ -15,7 +15,7 @@ export const useUserStore = defineStore('userStore', () => {
 
   const fetchUser = async () => {
     try {
-      const fetchedUser = await authService.fetchUser()
+      const fetchedUser: User = await authService.fetchUser()
       user.value = fetchedUser
     } catch (err) {
       // toast.error({ message: 'Couldn\'t fetch user' })

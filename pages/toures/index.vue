@@ -6,13 +6,14 @@
           “cultural”</span>
         <span class="text-slate-500 leading-5">Sort by:</span>
         <div class="w-[150px]">
-          <v-select density="compact" :hide-details="true" color="#28B0A6" value="Rating"
-            :items="['Rating', 'Relevance', 'Price', 'Title']" variant="outlined"
+          <v-select density="compact" :hide-details="true" color="#28B0A6" @update:menu="() => tourStore.changeSorting()"
+            v-model="tourStore.sortBy" :items="['Rating', 'Relevance', 'Price', 'Title']" variant="outlined"
             style="box-shadow: none; !important"></v-select>
         </div>
-        <v-btn icon="mdi-sort-variant" color="#28B0A6" class="text-white" size="small">
-
-        </v-btn>
+        <v-btn :icon="tourStore.desc ? 'mdi-sort-alphabetical-descending' : 'mdi-sort-alphabetical-ascending'" @click="() => {
+          tourStore.desc = !tourStore.desc
+          tourStore.changeSorting()
+        }" color="#28B0A6" class="text-white" size="small"></v-btn>
       </div>
       <div class="grid gap-x-8 grid-cols-6">
         <FilterMiniCard v-for="filterMini in filterMinis" :key="filterMini.id" :icon="filterMini.icon"
