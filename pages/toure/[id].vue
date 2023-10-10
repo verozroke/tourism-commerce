@@ -10,94 +10,7 @@
         </div>
         <ToureForm />
       </div>
-      <CarouselButtonRow title="Recently Viewed"
-        subtitle="Sost Brilliant reasons Entrada should be your one-stop-shop!" />
-      <div class="flex justify-between items-center w-full mt-16 gap-8">
-        <div class="flex-col flex w-1/3 gap-4 items-center ">
-          <div
-            class="relative rounded-[32px] bg-[url(https://images.unsplash.com/photo-1603705356887-0c1a1927ea7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)] h-80 w-full bg-center bg-no-repeat bg-cover">
-            <div v-ripple
-              class="backdrop-brightness-75 overlay text-white absolute inset-0 rounded-[32px] flex flex-col justify-between p-8">
-              <div class="flex w-full justify-end"><v-chip variant="elevated" color="#F5A623" class="px-4"
-                  style="width: fit-content;">30%</v-chip></div>
-              <div class="flex flex-col info opacity-0">
-                <span class="text-lg font-light leading-normal text-white">10 Days | 09 Night</span>
-                <div class="flex items-center">
-                  <span
-                    class="font-semibold flex-1 tracking-tight text-3xl text-white leading-normal underline underline-offset-4">
-                    $895.50
-                  </span>
-                  <v-btn icon="mdi-share-variant" class="text-oxford mr-4" size="small"></v-btn>
-                  <v-btn class="text-white px-6" rounded="xl"
-                    style="text-transform: none; font-weight: 400; font-size: 18px;" color="#28B0A6">Explore</v-btn>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div class=" text-center text-2xl text-oxford font-medium tracking-tight leading-normal">Train Tour Skyline
-          </div>
-          <div class="text-base text-center text-slate-500 w-4/5 tracking-wide leading-normal">Check Out Daily Deals and
-            Promotion
-            on Hotels. Easy & Fast Booking</div>
-        </div>
-        <div class="flex-col flex w-1/3 gap-4 items-center ">
-          <div
-            class="relative rounded-[32px]  bg-[url(https://images.unsplash.com/photo-1603705356887-0c1a1927ea7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)] h-80 w-full bg-center bg-no-repeat bg-cover">
-            <div v-ripple
-              class="backdrop-brightness-75 overlay text-white absolute inset-0 rounded-[32px] flex flex-col justify-between p-8">
-              <!-- <v-chip variant="elevated" color="#F5A623" class="px-4" style="width: fit-content;">30%</v-chip> -->
-              <div class="flex w-full justify-end"><v-chip variant="elevated" color="#F5A623" class="px-4"
-                  style="width: fit-content;">30%</v-chip></div>
-              <div class="flex flex-col info opacity-0">
-                <span class="text-lg font-light leading-normal text-white">10 Days | 09 Night</span>
-                <div class="flex items-center">
-                  <span
-                    class="font-semibold flex-1 tracking-tight text-3xl text-white leading-normal underline underline-offset-4">
-                    $895.50
-                  </span>
-                  <v-btn icon="mdi-share-variant" class="text-oxford mr-4" size="small"></v-btn>
-                  <v-btn class="text-white px-6" rounded="xl"
-                    style="text-transform: none; font-weight: 400; font-size: 18px;" color="#28B0A6">Explore</v-btn>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" text-center text-2xl text-oxford font-medium tracking-tight leading-normal">Train Tour Skyline
-          </div>
-          <div class="text-base text-center text-slate-500 w-4/5 tracking-wide leading-normal">Check Out Daily Deals and
-            Promotion
-            on Hotels. Easy & Fast Booking</div>
-        </div>
-        <div class="flex-col flex w-1/3 gap-4 items-center ">
-          <div
-            class="relative image-overlay rounded-[32px] bg-[url(https://images.unsplash.com/photo-1603705356887-0c1a1927ea7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)] h-80 w-full bg-center bg-no-repeat bg-cover">
-            <div v-ripple
-              class="backdrop-brightness-75 overlay text-white absolute inset-0 rounded-[32px] flex flex-col justify-between p-8">
-              <!-- <v-chip variant="elevated" color="#F5A623" class="px-4" style="width: fit-content;">30%</v-chip> -->
-              <div class="flex w-full justify-end"><v-chip variant="elevated" color="#F5A623" class="px-4"
-                  style="width: fit-content;">30%</v-chip></div>
-              <div class="flex flex-col info opacity-0">
-                <span class="text-lg font-light leading-normal text-white">10 Days | 09 Night</span>
-                <div class="flex items-center">
-                  <span
-                    class="font-semibold flex-1 tracking-tight text-3xl text-white leading-normal underline underline-offset-4">
-                    $895.50
-                  </span>
-                  <v-btn icon="mdi-share-variant" class="text-oxford mr-4" size="small"></v-btn>
-                  <v-btn class="text-white px-6" rounded="xl"
-                    style="text-transform: none; font-weight: 400; font-size: 18px;" color="#28B0A6">Explore</v-btn>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" text-center text-2xl text-oxford font-medium tracking-tight leading-normal">Train Tour Skyline
-          </div>
-          <div class="text-base text-center text-slate-500 w-4/5 tracking-wide leading-normal">Check Out Daily Deals and
-            Promotion
-            on Hotels. Easy & Fast Booking</div>
-        </div>
-      </div>
+      <RecentlyViewed />
       <Footer />
 
     </div>
@@ -106,10 +19,18 @@
 
 
 <script lang="ts" setup>
+import { useToast } from '~/hooks/use-toast';
+import tourService from '~/services/tour.service';
 import { useUserStore } from '~/stores/UserStore';
-import { CarouselItem } from '~/types/tour';
+import { CarouselItem, TourInfo } from '~/types/tour';
 
 const userStore = useUserStore()
+const route = useRoute()
+
+const { toast } = useToast()
+
+
+const tourInfo = ref<TourInfo>({} as TourInfo)
 
 const carouselItems = ref<CarouselItem[]>([
   {
@@ -134,23 +55,54 @@ const carouselItems = ref<CarouselItem[]>([
   },
 ])
 
+
+function addToRecentlyViewed(item: TourInfo) {
+  let recentlyViewedItems: TourInfo[] = JSON.parse(localStorage.getItem('recentlyViewed')!) || [];
+
+  // Check if the item is already in the recently viewed list
+  const isIn = recentlyViewedItems.find(tour => tour.id === item.id);
+  if (!!isIn) {
+    // Remove the item from its current position
+
+    const itemIndex = recentlyViewedItems.indexOf(isIn);
+    recentlyViewedItems.splice(itemIndex, 1);
+  }
+
+  // Add the item at the beginning of the list
+  recentlyViewedItems.unshift(item);
+
+  // Limit the list to a certain number of items (e.g., 10)
+  const maxItems = 10;
+  recentlyViewedItems = recentlyViewedItems.slice(0, maxItems);
+
+  // Save the updated list to localStorage
+  localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewedItems));
+}
+
 onMounted(async () => {
   await userStore.fetchUser()
 
   if (!userStore.user) {
     window.location.pathname = '/login'
   }
+
+  try {
+    const data = await tourService.getTourInfoById(route.params.id as string)
+    // on success
+    tourInfo.value = data
+  } catch (error) {
+    // on error
+    toast.error({ message: 'Something went wrong' })
+  }
+
+
+  addToRecentlyViewed(tourInfo.value)
 })
 
 </script>
 
 
 <style scoped>
-.overlay:hover .info {
-  opacity: 1;
-  transition: .3s;
-}
-
 .info {
   transition: .3s;
 }

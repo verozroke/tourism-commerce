@@ -16,6 +16,9 @@ export const useToast = () => {
     },
     success({ message, timeout }: ToastOptions) {
       toastStore.openSnackbar(message, timeout, '#28B0A6')
+    },
+    copied({ message, timeout }: ToastOptions) {
+      toastStore.openSnackbar(message, timeout, '#3c4dff')
     }
   }
 

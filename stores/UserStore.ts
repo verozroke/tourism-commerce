@@ -28,7 +28,9 @@ export const useUserStore = defineStore('userStore', () => {
     try {
       const data = await authService.signOut()
       window.location.reload()
+      toast.error({ message: 'Signed out successfully' })
     } catch (err) {
+      toast.error({ message: 'Can not sign out' })
     }
   }
 

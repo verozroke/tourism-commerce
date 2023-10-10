@@ -1,8 +1,8 @@
 <template>
   <div class="flex shadow-2xl w-fit mb-12">
     <div class="relative">
-      <svg class="absolute top-9 left-5" xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18"
-        fill="none">
+      <svg class="absolute top-[38px] left-5" xmlns="http://www.w3.org/2000/svg" width="23" height="18"
+        viewBox="0 0 23 18" fill="none">
         <path d="M2 3L11.4995 11L21 3" stroke="#99A3AD" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
           stroke-linejoin="round" />
         <path

@@ -14,8 +14,15 @@
 </template>
 
 <script setup lang="ts">
+import { useUserStore } from '~/stores/UserStore';
 
 
+const userStore = useUserStore()
+
+onMounted(async () => {
+  await userStore.fetchUser()
+
+})
 
 
 </script>

@@ -24,6 +24,7 @@ const props = defineProps<{
 <style>
 .v-img__img.v-img__img--cover,
 .v-window.v-theme--light.v-carousel {
-  border-radius: 8px !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div v-ripple class="w-full bg-white drop-shadow-md p-4 rounded-[36px] pb-8">
+  <div v-ripple class="w-full h-fit bg-white drop-shadow-md p-4 rounded-[36px] pb-8">
     <img :src="imageUrl" class="w-full rounded-3xl h-64 object-cover" alt="Tour Photo">
     <div class="flex flex-col gap-8 mt-8 px-4">
       <div class="flex">
@@ -47,7 +47,10 @@
               d="M9.6 3C9.6 2.84087 9.53678 2.68826 9.42426 2.57574C9.31174 2.46321 9.15913 2.4 9 2.4C8.84087 2.4 8.68826 2.46321 8.57573 2.57574C8.46321 2.68826 8.4 2.84087 8.4 3V9C8.4 9.15913 8.46321 9.31174 8.57573 9.42426C8.68826 9.53678 8.84087 9.6 9 9.6H15C15.1591 9.6 15.3117 9.53678 15.4243 9.42426C15.5368 9.31174 15.6 9.15913 15.6 9C15.6 8.84087 15.5368 8.68826 15.4243 8.57573C15.3117 8.46321 15.1591 8.4 15 8.4H9.6V3Z"
               fill="#28B0A6" />
           </svg>
-          <h3 class="text-base font-medium leading-tight text-slate-500">{{ duration }}</h3>
+          <!-- {{ duration }} -->
+          <h3 class="text-base font-medium leading-tight text-slate-500">
+            {{ duration.name }}
+          </h3>
         </div>
         <div class="flex gap-2 items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 12 8" fill="none">

@@ -13,7 +13,9 @@
         </NuxtLink>
         <NuxtLink to="/" class="font-medium text-xl text-oxford hover:text-seagreen  duration-200">Specials
         </NuxtLink>
-        <v-btn variant="text" icon="mdi-magnify" class="-ml-4 " style="color: #1D293F"></v-btn>
+        <v-btn variant="text" icon="mdi-magnify" @click="() => {
+          searchStore.dialog = true
+        }" class="-ml-4" style="color: #1D293F"></v-btn>
       </div>
       <div v-if="!userStore.user" class="flex gap-5">
         <v-btn rounded="xl" @click="() => router.push('/login')" class="tracking-tight text" variant="text" size="large"
@@ -29,10 +31,12 @@
 
 <script setup lang="ts">
 import { useUserStore } from '~/stores/UserStore';
+import { useSearchStore } from '~/stores/SearchStore';
 
 const router = useRouter()
 
 const userStore = useUserStore()
+const searchStore = useSearchStore()
 
 </script>
 
