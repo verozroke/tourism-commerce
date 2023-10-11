@@ -17,11 +17,16 @@
 import { useUserStore } from '~/stores/UserStore';
 
 
+useHead({
+  title: 'Home | Touri'
+})
+
+
 const userStore = useUserStore()
 
 onMounted(async () => {
+  window.scrollTo(0, 0)
   await userStore.fetchUser()
-
 })
 
 

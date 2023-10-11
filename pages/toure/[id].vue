@@ -29,8 +29,10 @@ const route = useRoute()
 
 const { toast } = useToast()
 
-
 const tourInfo = ref<TourInfo>({} as TourInfo)
+
+
+
 
 const carouselItems = ref<CarouselItem[]>([
   {
@@ -80,6 +82,8 @@ function addToRecentlyViewed(item: TourInfo) {
 }
 
 onMounted(async () => {
+  window.scrollTo(0, 0)
+
   await userStore.fetchUser()
 
   if (!userStore.user) {
@@ -90,13 +94,16 @@ onMounted(async () => {
     const data = await tourService.getTourInfoById(route.params.id as string)
     // on success
     tourInfo.value = data
+    addToRecentlyViewed(tourInfo.value)
   } catch (error) {
     // on error
     toast.error({ message: 'Something went wrong' })
   }
+  useHead({
+    title: `${tourInfo.value.title} Tour | Touri`
+  })
 
 
-  addToRecentlyViewed(tourInfo.value)
 })
 
 </script>

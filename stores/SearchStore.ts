@@ -8,15 +8,10 @@ import { debounce } from '~/utils/debounce';
 
 
 export const useSearchStore = defineStore('searchStore', () => {
-
   const { toast } = useToast()
 
-
-
   const dialog = ref(false)
-
   const searchedTourInfos = ref<TourInfo[]>([])
-
   const isLoading = ref<boolean>(false)
   const query = ref<string>('')
 
@@ -29,18 +24,13 @@ export const useSearchStore = defineStore('searchStore', () => {
         searchedTourInfos.value = searchResults
         return
       }
-
       searchedTourInfos.value = []
       isLoading.value = false
-
     } catch (err) {
       // on error
-
       toast.error({ message: 'Couldn\'t found tour infos' })
     }
-
   }, 300)
-
 
   return {
     dialog,

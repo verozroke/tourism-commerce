@@ -5,9 +5,8 @@ import { User } from '~/types/user';
 
 
 export const useUserStore = defineStore('userStore', () => {
-  const user = ref<User | null>(null)
-  const router = useRouter()
   const { toast } = useToast()
+  const user = ref<User | null>(null)
 
   const setUser = (newUser: User) => {
     user.value = newUser
@@ -18,22 +17,19 @@ export const useUserStore = defineStore('userStore', () => {
       const fetchedUser: User = await authService.fetchUser()
       user.value = fetchedUser
     } catch (err) {
-      // toast.error({ message: 'Couldn\'t fetch user' })
-
+      console.log(err)
     }
-
   }
 
   const signOut = async () => {
     try {
-      const data = await authService.signOut()
+      await authService.signOut()
       window.location.reload()
       toast.error({ message: 'Signed out successfully' })
     } catch (err) {
       toast.error({ message: 'Can not sign out' })
     }
   }
-
 
   return {
     user,

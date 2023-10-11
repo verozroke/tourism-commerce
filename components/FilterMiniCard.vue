@@ -5,6 +5,7 @@
 
 
     tourStore.getTourInfos()
+    tourStore.getTourLength()
   }" :class="{ 'active': tourStore.specials.includes(text) }" v-ripple
     class="flex items-center text-white  w-full rounded-2xl p-4 gap-4 cursor-pointer card"
     style="border: 1px solid #E9ECEF">

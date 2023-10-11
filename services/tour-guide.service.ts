@@ -1,6 +1,5 @@
 import axios from "axios";
 import { TourInfo } from '~/types/tour';
-// const config = useRuntimeConfig()
 class TourGuideService {
   baseUrl: string;
   constructor(baseUrl: string) {
@@ -17,9 +16,7 @@ class TourGuideService {
 
     return data
   }
-
 }
 
 const tourGuideService = new TourGuideService('http://localhost:4000');
-
 export default tourGuideService

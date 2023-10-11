@@ -5,7 +5,6 @@ export type ToastColor = '#28B0A6' | '#FA126C'
 
 export const useToastStore = defineStore('toastStore', () => {
   const snackbar = ref<boolean>(false)
-
   const color = ref<ToastColor>('#28B0A6')
   const message = ref<string>('')
   const timeout = ref<number>(2000)

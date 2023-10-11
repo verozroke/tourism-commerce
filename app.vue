@@ -13,7 +13,10 @@
 import { register } from 'swiper/element/bundle';
 import ToastProvider from './providers/ToastProvider.vue';
 import SearchProvider from './providers/SearchProvider.vue';
+// FIXME: удалить
 register();
+
+// # FIXME: засвать работать .env
 </script>
 
 

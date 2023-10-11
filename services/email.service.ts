@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios from "axios"
+
 class EmailService {
   baseUrl: string;
   constructor(baseUrl: string) {
@@ -15,9 +16,7 @@ class EmailService {
 
     return data
   }
-
 }
 
 const emailService = new EmailService('http://localhost:4000');
-
 export default emailService

@@ -18,7 +18,6 @@ class AuthService {
     })
 
     return data
-
   }
 
   async register(body: RegisterUserValidator) {
@@ -37,7 +36,6 @@ class AuthService {
       withCredentials: true,
     })
 
-
     return data.user as User
   }
 
@@ -46,14 +44,11 @@ class AuthService {
       withCredentials: true,
     })
 
-
     return data
-
   }
 }
 
 
 
 const authService = new AuthService('http://localhost:4000');
-
 export default authService

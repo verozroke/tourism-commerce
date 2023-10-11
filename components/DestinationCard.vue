@@ -1,6 +1,7 @@
 <template>
-  <div @click="() => router.push(`/toure/${id}`)" :style="{ backgroundImage: `url('${imageLink}')` }"
-    :class="`rounded-[32px] min-h-[385px] min-w-auto h-full relative  ${spanning}   bg-center bg-no-repeat bg-cover`">
+  <div @click="() => router.push(`/toure/${id}`)"
+    :style="{ backgroundImage: `url('${imageLink}')`, gridColumn: `span ${spanning.split(' ')[0]} / span ${spanning.split(' ')[0]}` }"
+    :class="`rounded-[32px] min-h-[385px] min-w-auto h-full relative  ${spanning.split(' ')[1]}  bg-center bg-no-repeat bg-cover`">
     <div v-ripple
       class="backdrop-brightness-75 text-white absolute inset-0 rounded-[32px] flex flex-col justify-between p-8">
       <v-chip variant="elevated" color="#F5A623" class="px-4" style="width: fit-content;">{{ rate }}</v-chip>
@@ -13,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { DestinationCard } from '@/types/destination';
+import { DestinationCard } from '@/types/tour';
 
 const router = useRouter()
 

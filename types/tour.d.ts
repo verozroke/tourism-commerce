@@ -1,3 +1,9 @@
+export type DurationOption = 'Upto 1 Hour' | '1 to 4 Hours' | '4 Hours to 1 Day' | '1 to 3 Days' | '3 Days or More'
+export type AgeGroupOption = '1 & Up' | '3 & Up' | '7 & Up' | '13 & Up' | '18 & Up'
+export type TagOption = 'Child Friendly' | 'Taking extra precautions' | 'Away from the chaos' | 'Epic Challenges' | 'Virtual Experiences'
+export type SpecialOption = 'Discounted deals' | 'Free Cancellations' | 'Private Groups' | 'New on Entrada' | 'Entrada Specials'
+export type SortByOption = 'Rating' | 'Relevance' | 'Price' | 'Title'
+export type SliderValue = [minValue: number, maxValue: number]
 export type TourInfo = {
   id: string,
   title: string,
@@ -14,11 +20,18 @@ export type TourInfo = {
   ageGroup: AgeGroup
   specials: Special[]
   tags: Tag[]
-
 }
 
-export type rangeValue = number
-
+export type TourGuide = {
+  id: string
+  fullname: string
+  about: string
+  journey: string
+  facebookLink: string
+  instagramLink: string
+  twitterLink: string
+  imageUrl: string
+}
 
 export type CarouselItem = {
   id: string
@@ -57,16 +70,14 @@ export type Tag = {
   updatedAt: Date
 }
 
-export type DurationOption = 'Upto 1 Hour' | '1 to 4 Hours' | '4 Hours to 1 Day' | '1 to 3 Days' | '3 Days or More'
-export type AgeGroupOption = '1 & Up' | '3 & Up' | '7 & Up' | '13 & Up' | '18 & Up'
-export type TagOption = 'Child Friendly' | 'Taking extra precautions' | 'Away from the chaos' | 'Epic Challenges' | 'Virtual Experiences'
-export type SpecialOption = 'Discounted deals' | 'Free Cancellations' | 'Private Groups' | 'New on Entrada' | 'Entrada Specials'
-export type SortByOption = 'Rating' | 'Relevance' | 'Price' | 'Title'
 
 
+export type DestinationCard = {
+  id: string
+  spanning: string
+  title: string
+  category: string
+  rate: number
+  imageLink: string
+}
 
-
-// rating
-// relevance
-// title
-// price

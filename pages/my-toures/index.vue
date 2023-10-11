@@ -6,6 +6,16 @@
 
 <script setup lang="ts">
 
+useHead({
+  title: "My toures | Touri"
+})
+
+
+onMounted(() => {
+  window.scrollTo(0, 0)
+
+})
+
 </script>
 
 <style scoped></style>
