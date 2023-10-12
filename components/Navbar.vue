@@ -34,7 +34,6 @@ import { useUserStore } from '~/stores/UserStore';
 import { useSearchStore } from '~/stores/SearchStore';
 
 const router = useRouter()
-
 const userStore = useUserStore()
 const searchStore = useSearchStore()
 

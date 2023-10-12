@@ -21,8 +21,6 @@
 
 <script setup lang="ts">
 
-
-
 const props = defineProps<{
   moveCallbacks?: [leftMove: () => void, rightMove: () => void]
   title: string
@@ -32,7 +30,6 @@ const props = defineProps<{
 
 const leftMove = props.moveCallbacks ? props.moveCallbacks[0] : () => { }
 const rightMove = props.moveCallbacks ? props.moveCallbacks[1] : () => { }
-
 
 </script>
 

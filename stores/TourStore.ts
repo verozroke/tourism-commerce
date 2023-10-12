@@ -1,9 +1,20 @@
 import { defineStore } from 'pinia';
 import { useToast } from '~/hooks/use-toast';
-import tourService, { QueryParams, TourLengthQueryParams } from '~/services/tour.service';
-import { TourInfo, TagOption, DurationOption, AgeGroupOption, SpecialOption, SortByOption, TourGuide, SliderValue } from '~/types/tour';
+import tourService, { type QueryParams, type TourLengthQueryParams } from '~/services/tour.service';
+import type {
+  TourInfo,
+  TagOption,
+  DurationOption,
+  AgeGroupOption,
+  SpecialOption,
+  SortByOption,
+  SliderValue
+} from '~/types/tour';
+import type {
+  DestinationCard,
+  TourGuide
+} from '~/types/client';
 import tourGuideService from '~/services/tour-guide.service'
-import { DestinationCard } from '~/types/tour';
 import { LIMIT_TOURS_IN_PAGE, spannings } from '~/constants/constants';
 
 
@@ -25,7 +36,7 @@ export const useTourStore = defineStore('tourStore', () => {
       spanning: '',
       category: destination.location,
       rate: destination.rate,
-      imageLink: destination.imageUrl
+      imageLink: destination.images[0].imageUrl
     }))
     halfReadyDestinationCards.forEach((destinationCard, index) => {
       destinationCard.spanning = spannings[index]

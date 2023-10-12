@@ -23,7 +23,6 @@
 import { SubmitEventPromise } from 'vuetify/lib/framework.mjs';
 import { useToast } from '~/hooks/use-toast';
 import authService from '~/services/auth.service';
-
 export type RegisterUserValidator = {
   email: string
   name: string
@@ -31,14 +30,13 @@ export type RegisterUserValidator = {
 }
 
 const { toast } = useToast()
-const isLoading = ref(false)
 const router = useRouter()
 const registerForm = ref(null)
+const isLoading = ref(false)
 
 const isValid = async () => {
   //@ts-expect-error registerForm type gives automaticcaly in vuetify
   const { valid } = await registerForm.value?.validate()
-
   return valid
 }
 
@@ -46,7 +44,6 @@ const resetForm = () => {
   //@ts-expect-error registerForm type gives automaticcaly in vuetify
   registerForm.value?.reset()
 }
-
 
 const onSubmit = async (e: SubmitEventPromise) => {
   e.preventDefault()
@@ -59,11 +56,9 @@ const onSubmit = async (e: SubmitEventPromise) => {
         password: password.value
       }
       isLoading.value = true
-      const { message } = await authService.register(payload)
-
+      await authService.register(payload)
       // on success
       toast.success({ message: 'Registration successful' })
-
       isLoading.value = false
       resetForm()
       router.push('/login')
@@ -71,14 +66,11 @@ const onSubmit = async (e: SubmitEventPromise) => {
       // on error
       isLoading.value = false
       toast.error({ message: 'Something went wrong' })
-
     }
-
   }
-
-
 }
 
+// Rules
 const email = ref('')
 const emailRules = ref([
   (v: any) => !!v || 'Email is required',
@@ -89,8 +81,6 @@ const name = ref('')
 const nameRules = ref([
   (v: any) => !!v || 'Name is required',
 ])
-
-
 
 const password = ref('')
 const passwordRules = ref([

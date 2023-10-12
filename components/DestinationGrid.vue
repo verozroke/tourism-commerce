@@ -9,9 +9,6 @@ import { useTourStore } from '~/stores/TourStore';
 
 const tourStore = useTourStore()
 
-
-
-
 onMounted(async () => {
   await tourStore.getTopDestinations()
 })

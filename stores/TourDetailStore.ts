@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { useToast } from '~/hooks/use-toast';
 import tourService from '~/services/tour.service';
 import { useUserStore } from './UserStore';
-import { TourInfo } from '~/types/tour';
+import type { TourInfo } from '~/types/tour';
 import { addToRecentlyViewed } from '~/utils/debounce';
 
 

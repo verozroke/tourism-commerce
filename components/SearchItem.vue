@@ -3,7 +3,7 @@
     router.push(`/toure/${id}`)
     searchStore.dialog = false
   }" v-ripple class="bg-white flex w-[552px] gap-5 h-32 shadow-md rounded-lg">
-    <img :src="imageUrl" class="object-cover rounded-lg w-32 h-32" alt="">
+    <img :src="images[0].imageUrl" class="object-cover rounded-lg w-32 h-32" alt="">
     <div class="flex flex-col flex-gro py-2">
       <h2 class="text-xl font-semibold leading-normal tracking-tight text-oxford">{{ title }}</h2>
       <h4 class="text-sm leading-normal tracking-wide truncate text-ellipsis w-[350px] text-gray-500">{{ location }}</h4>
@@ -40,18 +40,16 @@
 
 <script setup lang="ts">
 import { useSearchStore } from '~/stores/SearchStore';
-import { TourInfo } from '~/types/tour';
+import type { TourInfo } from '~/types/tour';
 
 const router = useRouter()
-
 const searchStore = useSearchStore()
-
 
 const props = defineProps<{
   tourInfo: TourInfo
 }>()
 
-const { id, duration, imageUrl, location, price, rate, rateAmount, title } = props.tourInfo
+const { id, duration, images, location, price, rate, rateAmount, title } = props.tourInfo
 
 </script>
 

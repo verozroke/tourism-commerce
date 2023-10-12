@@ -6,18 +6,11 @@
 </template>
 
 <script setup lang="ts">
-import { CarouselItem } from '~/types/tour';
+import type { CarouselItem } from '~/types/client';
 
-
-const props = defineProps<{
-  // title: string,
-
+defineProps<{
   carouselItems: CarouselItem[],
-  // path: string,
-  // numberOfReviews: number,
 }>()
-
-
 
 </script>
 

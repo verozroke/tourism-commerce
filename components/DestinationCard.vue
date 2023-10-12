@@ -14,10 +14,9 @@
 </template>
 
 <script setup lang="ts">
-import { DestinationCard } from '@/types/tour';
+import type { DestinationCard } from '@/types/client';
 
 const router = useRouter()
-
 
 const props = defineProps<{
   card: DestinationCard

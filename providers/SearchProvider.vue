@@ -25,10 +25,7 @@
 
 <script setup lang="ts">
 import { useSearchStore } from '~/stores/SearchStore';
-
-
 const searchStore = useSearchStore()
-
 
 watch(() => searchStore.dialog, () => {
   if (!searchStore.dialog) {

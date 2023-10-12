@@ -17,14 +17,10 @@
 
 <script setup lang="ts">
 import { useTourStore } from '~/stores/TourStore';
-
-
 const tourStore = useTourStore()
 
-onMounted(() => {
-  tourStore.getFeaturedTours()
-
-
+onMounted(async () => {
+  await tourStore.getFeaturedTours()
 })
 
 </script>

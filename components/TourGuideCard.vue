@@ -30,9 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { TourGuide } from '~/stores/TourStore';
-
-
+import type { TourGuide } from '~/types/client';
 
 const props = defineProps<{
   tourGuide: TourGuide,

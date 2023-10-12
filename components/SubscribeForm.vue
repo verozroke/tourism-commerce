@@ -21,7 +21,6 @@
 import { useToast } from '~/hooks/use-toast';
 import emailService from '~/services/email.service';
 
-
 const emailInput = ref<string>('')
 const isLoading = ref<boolean>(false)
 const { toast } = useToast()

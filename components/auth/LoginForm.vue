@@ -21,33 +21,26 @@
 import { SubmitEventPromise } from 'vuetify/lib/framework.mjs';
 import { useToast } from '~/hooks/use-toast';
 import authService from '~/services/auth.service';
-
 export type LoginUserValidator = {
   email: string
   password: string
 }
 
 const { toast } = useToast()
-const isLoading = ref(false)
 const router = useRouter()
 const loginForm = ref(null)
+const isLoading = ref(false)
 
 const isValid = async () => {
   //@ts-expect-error registerForm type gives automaticcaly in vuetify
-
   const { valid } = await loginForm.value?.validate()
-
   return valid
 }
 
 const resetForm = () => {
   //@ts-expect-error registerForm type gives automaticcaly in vuetify
-
   loginForm.value?.reset()
 }
-
-
-
 
 const onSubmit = async (e: SubmitEventPromise) => {
   e.preventDefault()
@@ -59,12 +52,9 @@ const onSubmit = async (e: SubmitEventPromise) => {
         password: password.value
       }
       isLoading.value = true
-      const { message } = await authService.login(payload)
-
+      await authService.login(payload)
       // on success
-
       toast.success({ message: 'Login successful' })
-
       isLoading.value = false
       resetForm()
       router.push('/toures')
@@ -73,12 +63,10 @@ const onSubmit = async (e: SubmitEventPromise) => {
       isLoading.value = false
       toast.error({ message: 'Something went wrong' })
     }
-
   }
-
-
 }
 
+// Rules
 const email = ref('')
 const emailRules = ref([
   (v: any) => !!v || 'Email is required',
@@ -90,6 +78,7 @@ const passwordRules = ref([
   (v: any) => (v && v.length >= 8) || 'Password must be more than 8 characters',
   (v: any) => (v && v.length <= 20) || 'Password must be less than 20 characters',
 ])
+
 </script>
 
 <style scoped></style>

@@ -1,6 +1,6 @@
 <template>
   <div v-ripple class="w-full h-fit bg-white drop-shadow-md p-4 rounded-[36px] pb-8">
-    <img :src="imageUrl" class="w-full rounded-3xl h-64 object-cover" alt="Tour Photo">
+    <img :src="images[0].imageUrl" class="w-full rounded-3xl h-64 object-cover" alt="Tour Photo">
     <div class="flex flex-col gap-8 mt-8 px-4">
       <div class="flex">
         <div class="flex flex-col flex-grow">
@@ -64,15 +64,13 @@
 </template>
 
 <script setup lang="ts">
-import { TourInfo } from '~/types/tour';
-
+import type { TourInfo } from '~/types/tour';
 
 const props = defineProps<{
   tourInfo: TourInfo
 }>()
 
-
-const { duration, location, price, rate, rateAmount, title, imageUrl } = props.tourInfo
+const { duration, location, price, rate, rateAmount, title, images } = props.tourInfo
 
 </script>
 

@@ -28,10 +28,7 @@
 </template>
 
 <script setup lang="ts">
-
-
 const tab = ref('')
-
 </script>
 
 <style scoped></style>

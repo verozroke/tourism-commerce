@@ -12,7 +12,6 @@ useHead({
 
 onMounted(() => {
   window.scrollTo(0, 0)
-
 })
 
 </script>

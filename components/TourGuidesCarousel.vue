@@ -8,13 +8,9 @@
 </template>
 
 <script setup lang="ts">
-import { useToast } from '~/hooks/use-toast';
 import { useTourStore } from '~/stores/TourStore';
 
-const { toast } = useToast()
 const tourStore = useTourStore()
-
-
 
 onMounted(async () => {
   await tourStore.getTourGuides()

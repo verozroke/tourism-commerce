@@ -1,7 +1,14 @@
 import axios from "axios";
-import { RegisterTourValidator } from "~/stores/TourDetailStore";
-import { MessageResponse } from "~/types/response";
-import { DurationOption, AgeGroupOption, TagOption, SortByOption, SpecialOption, TourInfo } from "~/types/tour";
+import type { RegisterTourValidator } from "~/stores/TourDetailStore";
+import type { MessageResponse } from "~/types/response";
+import type {
+  DurationOption,
+  AgeGroupOption,
+  TagOption,
+  SortByOption,
+  SpecialOption,
+  TourInfo
+} from "~/types/tour";
 
 export type QueryParams = {
   durations?: DurationOption[]
@@ -76,7 +83,7 @@ class TourService {
     const to = dateRange ? dateRange[1] : '2023-10-23';
 
     const resultQuery = `${this.baseUrl}/tour-infos?sortBy=${sortBy}&${queryTags}&${queryAgeGroups}&${querySpecials}&${queryDurations}&desc=${!!desc}&priceRange[]=${minValue}&priceRange[]=${maxValue}&dateRange[]=${from}&dateRange[]=${to}&page=${page}&limit=${limit}`
-    const { data }: { data: TourInfo[] } = await axios.get(resultQuery, {
+    const { data } = await axios.get<TourInfo[]>(resultQuery, {
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json'
@@ -98,7 +105,7 @@ class TourService {
   }
 
   async getTopDestinations() {
-    const { data } = await axios.get(`${this.baseUrl}/tour-infos/top-destinations`, {
+    const { data } = await axios.get<TourInfo[]>(`${this.baseUrl}/tour-infos/top-destinations`, {
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json'

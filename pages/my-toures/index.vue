@@ -7,13 +7,11 @@
 <script setup lang="ts">
 
 useHead({
-  title: "My toures | Touri"
+  title: "My Toures | Touri"
 })
-
 
 onMounted(() => {
   window.scrollTo(0, 0)
-
 })
 
 </script>

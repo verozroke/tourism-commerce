@@ -19,14 +19,12 @@
 
 
 <script lang="ts" setup>
-import { useToast } from '~/hooks/use-toast';
 import { useTourDetailStore } from '~/stores/TourDetailStore';
 import { useUserStore } from '~/stores/UserStore';
-import { CarouselItem } from '~/types/tour';
+import type { CarouselItem } from '~/types/client';
 
 const userStore = useUserStore()
 const route = useRoute()
-const { toast } = useToast()
 const tourDetailStore = useTourDetailStore()
 
 const carouselItems = ref<CarouselItem[]>([

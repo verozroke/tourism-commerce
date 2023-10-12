@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { LoginUserValidator } from "@/components/auth/LoginForm.vue";
 import type { RegisterUserValidator } from "@/components/auth/RegisterForm.vue";
-import { User } from "~/types/user";
+import type { User } from "~/types/user";
 
 class AuthService {
   baseUrl: string;

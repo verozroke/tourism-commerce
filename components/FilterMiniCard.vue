@@ -1,9 +1,6 @@
 <template>
   <div @click="() => {
     tourStore.specials.includes(text) ? tourStore.specials = tourStore.specials.filter(special => special !== text) : tourStore.specials.push(text)
-    console.log(tourStore.specials.join(', '));
-
-
     tourStore.getTourInfos()
     tourStore.getTourLength()
   }" :class="{ 'active': tourStore.specials.includes(text) }" v-ripple
@@ -18,8 +15,7 @@
 
 <script setup lang="ts">
 import { useTourStore } from '~/stores/TourStore';
-import { SpecialOption } from '~/types/tour';
-
+import type { SpecialOption } from '~/types/tour';
 
 const tourStore = useTourStore()
 
@@ -33,14 +29,12 @@ defineProps<{
 <style>
 .card {
   transition: .2s;
-
 }
 
 .card.active {
   background-color: #28B0A6 !important;
   border: 1px solid #28B0A6 !important;
   transition: .2s;
-
 }
 
 .card.active .text-sm {
@@ -51,7 +45,6 @@ defineProps<{
 .card.active img {
   filter: brightness(1000%);
   transition: .2s;
-
 }
 
 

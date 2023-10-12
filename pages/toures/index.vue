@@ -116,7 +116,7 @@
 <script setup lang="ts">
 import { useTourStore } from '~/stores/TourStore';
 import { useUserStore } from '~/stores/UserStore';
-import { SpecialOption } from '~/types/tour';
+import type { SpecialOption } from '~/types/tour';
 
 
 

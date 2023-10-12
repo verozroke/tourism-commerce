@@ -4,7 +4,7 @@
       subtitle="Sost Brilliant reasons Entrada should be your one-stop-shop!" />
     <div class="flex transition duration-300 ease-in-out  recent-item justify-start items-center  mt-16 gap-8">
       <div v-for="item in recentlyViewed" class="flex-col flex min-w-[445px] gap-2 items-center ">
-        <div :style="{ backgroundImage: `url(${item.imageUrl})` }"
+        <div :style="{ backgroundImage: `url(${item.images[0].imageUrl})` }"
           class="relative rounded-[32px] h-80 w-full bg-center bg-no-repeat bg-cover">
           <div @click="() => router.push(`/toure/${item.id}`)" v-ripple
             class="backdrop-brightness-50 overflow-hidden overlay text-white absolute inset-0 rounded-[32px] flex flex-col justify-between p-8">
@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
 import { useToast } from '~/hooks/use-toast';
-import { TourInfo } from '~/types/tour';
+import type { TourInfo } from '~/types/tour';
 
 const currentSlide = ref<number>(0)
 

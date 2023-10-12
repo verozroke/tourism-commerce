@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { useToast } from '~/hooks/use-toast';
 import authService from '~/services/auth.service';
-import { User } from '~/types/user';
+import type { User } from '~/types/user';
 
 
 export const useUserStore = defineStore('userStore', () => {

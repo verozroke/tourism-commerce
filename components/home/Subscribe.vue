@@ -1,14 +1,11 @@
 <template>
   <div class="flex py-20 items-center justify-center gap-9 container w-full px-0">
     <div class="grid w-[700px] grid-rows-2 grid-cols-2 gap-x-8 gap-y-8">
-      <!-- First image spans 2 rows -->
       <div
         class="col-span-1 row-span-2 bg-[url(https://images.unsplash.com/photo-1520869578617-557561d7b114?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)] rounded-lg min-w-full min-h-[300px] bg-cover bg-center" />
-      <!-- Second image in the first column -->
       <img
         src="https://images.unsplash.com/photo-1520869578617-557561d7b114?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
         alt="" class="rounded-lg min-w-full min-h-[300px] object-cover object-center">
-      <!-- Third image in the second column -->
       <img
         src="https://images.unsplash.com/photo-1520869578617-557561d7b114?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D% min-h-[300px]=format&fit=crop&w=2070&q=80"
         alt="" class="rounded-lg min-w-full min-h-[300px] object-cover object-center">

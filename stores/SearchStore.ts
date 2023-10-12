@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia';
 import { useToast } from '~/hooks/use-toast';
 import tourService from '~/services/tour.service';
-import { TourInfo } from '~/types/tour';
+import type {
+  TourInfo
+} from '~/types/tour';
 import { debounce } from '~/utils/debounce';
 
 

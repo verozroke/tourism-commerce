@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
 
-export type ToastColor = '#28B0A6' | '#FA126C'
+export type ToastColor = '#28B0A6' | '#FA126C' | '#3c4dff'
 
 export const useToastStore = defineStore('toastStore', () => {
   const snackbar = ref<boolean>(false)

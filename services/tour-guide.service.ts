@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TourInfo } from '~/types/tour';
+import type { TourGuide } from "~/types/client";
 class TourGuideService {
   baseUrl: string;
   constructor(baseUrl: string) {
@@ -7,7 +7,7 @@ class TourGuideService {
   }
 
   async getTourGuides() {
-    const { data } = await axios.get(`${this.baseUrl}/tour-guides`, {
+    const { data } = await axios.get<TourGuide[]>(`${this.baseUrl}/tour-guides`, {
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json'

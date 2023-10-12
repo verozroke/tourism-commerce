@@ -20,12 +20,10 @@ useHead({
   title: "Sign In | Touri"
 })
 
-
 const userStore = useUserStore()
 
 onMounted(async () => {
   window.scrollTo(0, 0)
-
   await userStore.fetchUser()
 
   if (userStore.user) {

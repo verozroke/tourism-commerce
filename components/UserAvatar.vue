@@ -45,7 +45,6 @@ const signOut = () => {
   userStore.signOut()
 }
 
-
 </script>
 
 <style scoped></style>

@@ -9,10 +9,7 @@
 
 <script setup lang="ts">
 import { useToastStore } from '~/stores/ToastStore';
-
-
 const toastStore = useToastStore()
-
 </script>
 
 <style scoped></style>
