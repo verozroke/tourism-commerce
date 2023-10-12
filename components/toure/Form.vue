@@ -9,29 +9,31 @@
     <div class="text-slate-400 text-sm leading-normal mt-2 mb-8">*Price based on selections bellow.</div>
     <div class="flex flex-col gap-6">
       <div class="flex flex-col gap-2">
-        <div class="text-base text-slate-600 leading-normal tracking-wide">Dates</div>
-        <v-text-field hide-details="auto" label="" placeholder="Select preferred dates" variant="outlined"
-          append-inner-icon="mdi-calendar-range"></v-text-field>
+        <div class="text-base text-slate-600 leading-normal tracking-wide">Date</div>
+        <v-text-field hide-details="auto" label="" v-model="tourDetailStore.formDate" placeholder="Example: 2023-02-23"
+          variant="outlined" append-inner-icon="mdi-calendar-range"></v-text-field>
       </div>
       <div class="flex flex-col gap-2">
         <div class="text-base text-slate-600 leading-normal tracking-wide">Travelers</div>
-        <v-text-field type="number" hide-details="auto" placeholder="2 Adult, 1 Child" variant="outlined"
-          append-inner-icon="mdi-ski-cross-country"></v-text-field>
+        <v-text-field v-model="tourDetailStore.formTravelers" hide-details="auto" placeholder="2 Adult, 1 Child"
+          variant="outlined" append-inner-icon="mdi-ski-cross-country"></v-text-field>
       </div>
       <div class="flex flex-col gap-2">
-        <div class="text-base text-slate-600 leading-normal tracking-wide">Selections</div>
-        <v-text-field label="" hide-details="auto" variant="outlined" placeholder="Flight, hotel, car etc."
-          append-inner-icon="mdi-car"></v-text-field>
+        <div class="text-base text-slate-600 leading-normal tracking-wide">Transports</div>
+        <v-text-field label="" v-model="tourDetailStore.formTransports" hide-details="auto" variant="outlined"
+          placeholder="Flight, hotel, car etc." append-inner-icon="mdi-car"></v-text-field>
       </div>
     </div>
-    <v-btn size="large" color="#FA126C" rounded="lg" class="text-white mt-10" style="text-transform: none;">
+    <v-btn @click="async () => await tourDetailStore.registerToTour()" size="large" color="#FA126C" rounded="lg"
+      class="text-white mt-10" style="text-transform: none;">
       Check Availability
     </v-btn>
   </div>
 </template>
 
 <script setup lang="ts">
-
+import { useTourDetailStore } from '~/stores/TourDetailStore';
+const tourDetailStore = useTourDetailStore()
 </script>
 
 <style scoped></style>

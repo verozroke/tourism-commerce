@@ -20,19 +20,14 @@
 
 <script lang="ts" setup>
 import { useToast } from '~/hooks/use-toast';
-import tourService from '~/services/tour.service';
+import { useTourDetailStore } from '~/stores/TourDetailStore';
 import { useUserStore } from '~/stores/UserStore';
-import { CarouselItem, TourInfo } from '~/types/tour';
+import { CarouselItem } from '~/types/tour';
 
 const userStore = useUserStore()
 const route = useRoute()
-
 const { toast } = useToast()
-
-const tourInfo = ref<TourInfo>({} as TourInfo)
-
-
-
+const tourDetailStore = useTourDetailStore()
 
 const carouselItems = ref<CarouselItem[]>([
   {
@@ -57,53 +52,17 @@ const carouselItems = ref<CarouselItem[]>([
   },
 ])
 
-
-function addToRecentlyViewed(item: TourInfo) {
-  let recentlyViewedItems: TourInfo[] = JSON.parse(localStorage.getItem('recentlyViewed')!) || [];
-
-  // Check if the item is already in the recently viewed list
-  const isIn = recentlyViewedItems.find(tour => tour.id === item.id);
-  if (!!isIn) {
-    // Remove the item from its current position
-
-    const itemIndex = recentlyViewedItems.indexOf(isIn);
-    recentlyViewedItems.splice(itemIndex, 1);
-  }
-
-  // Add the item at the beginning of the list
-  recentlyViewedItems.unshift(item);
-
-  // Limit the list to a certain number of items (e.g., 10)
-  const maxItems = 10;
-  recentlyViewedItems = recentlyViewedItems.slice(0, maxItems);
-
-  // Save the updated list to localStorage
-  localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewedItems));
-}
-
 onMounted(async () => {
   window.scrollTo(0, 0)
-
   await userStore.fetchUser()
-
   if (!userStore.user) {
     window.location.pathname = '/login'
   }
 
-  try {
-    const data = await tourService.getTourInfoById(route.params.id as string)
-    // on success
-    tourInfo.value = data
-    addToRecentlyViewed(tourInfo.value)
-  } catch (error) {
-    // on error
-    toast.error({ message: 'Something went wrong' })
-  }
+  await tourDetailStore.getTourInfoById(route.params.id as string)
   useHead({
-    title: `${tourInfo.value.title} Tour | Touri`
+    title: `${tourDetailStore.tourInfo.title} Tour | Touri`
   })
-
-
 })
 
 </script>

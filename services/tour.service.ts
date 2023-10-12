@@ -1,4 +1,6 @@
 import axios from "axios";
+import { RegisterTourValidator } from "~/stores/TourDetailStore";
+import { MessageResponse } from "~/types/response";
 import { DurationOption, AgeGroupOption, TagOption, SortByOption, SpecialOption, TourInfo } from "~/types/tour";
 
 export type QueryParams = {
@@ -26,6 +28,18 @@ class TourService {
   baseUrl: string;
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl
+  }
+
+  async registerToTour(body: RegisterTourValidator) {
+
+    const { data } = await axios.post<MessageResponse>(`${this.baseUrl}/registered-tours/registered-tour`, body, {
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    return data.message
   }
 
   async getTourLength(query: TourLengthQueryParams): Promise<number> {
