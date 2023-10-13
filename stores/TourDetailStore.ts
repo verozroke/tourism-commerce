@@ -53,10 +53,10 @@ export const useTourDetailStore = defineStore('tourDetailStore', () => {
         userId: userStore.user!.id,
         tourInfoId: tourInfo.value.id,
       }
-      const message = await tourService.registerToTour(payload)
+      await tourService.registerToTour(payload)
 
       // on success
-      toast.success({ message })
+      toast.success({ message: 'Register completed' })
       formDate.value = ''
       formTravelers.value = ''
       formTransports.value = ''

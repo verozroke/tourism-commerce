@@ -58,6 +58,7 @@ onMounted(async () => {
   }
 
   await tourDetailStore.getTourInfoById(route.params.id as string)
+
   useHead({
     title: `${tourDetailStore.tourInfo.title} Tour | Touri`
   })
