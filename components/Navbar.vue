@@ -1,9 +1,9 @@
 <template>
   <div class="fixed top-0 inset-x-0 h-fit shadow-md  bg-white z-10 py-8">
     <div class="container flex items-center gap-24">
-      <nuxt-link to="/">
-        <div class="flex items-center gap-2">
-          <img src="/logo.png" alt="Touri Logo">
+      <nuxt-link to="/" class="ml-16">
+        <div class="flex items-center gap-3">
+          <img src="/logo.png" class="h-10 w-10" alt="Touri Logo">
           <h1 class="text-3xl font-semibold text-oxford">Touri</h1>
         </div>
       </nuxt-link>
