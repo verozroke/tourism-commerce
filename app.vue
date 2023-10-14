@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col">
+    <VitePwaManifest />
     <ToastProvider />
     <SearchProvider />
     <Navbar />

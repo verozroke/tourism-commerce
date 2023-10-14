@@ -1,0 +1,10 @@
+{
+  "name": "Touri",
+  "short_name": "Touri",
+  "theme_color": "#28b0a6",
+  "background_color": "#ffffff",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}
