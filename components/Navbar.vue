@@ -2,7 +2,10 @@
   <div class="fixed top-0 inset-x-0 h-fit shadow-md  bg-white z-10 py-8">
     <div class="container flex items-center gap-24">
       <nuxt-link to="/">
-        <h1 class="text-3xl font-semibold text-oxford">TimberWolf</h1>
+        <div class="flex items-center gap-2">
+          <img src="/logo.png" alt="Touri Logo">
+          <h1 class="text-3xl font-semibold text-oxford">Touri</h1>
+        </div>
       </nuxt-link>
       <div class="flex gap-12 items-center flex-grow">
         <NuxtLink to="/" class="font-medium text-xl text-oxford hover:text-seagreen transition-all duration-200">Home
