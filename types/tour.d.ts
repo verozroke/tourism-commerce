@@ -4,7 +4,8 @@ import type {
   Special,
   Tag,
 } from './filters'
-import type { Like } from './client'
+import type { InclusionType, Like } from './client'
+import { User } from './user'
 
 
 export type DurationOption = 'Upto 1 Hour' | '1 to 4 Hours' | '4 Hours to 1 Day' | '1 to 3 Days' | '3 Days or More'
@@ -38,7 +39,7 @@ export type TourInfo = {
   registeredTours?: RegisteredTour[]
   itineraries: Itinerary[]
   inclusions: Inclusion[]
-  reviews?: Review[]
+  reviews?: (Review & { user: User })[]
   faqs: Faq[]
   createdAt: Date
   updatedAt: Date
@@ -95,7 +96,7 @@ export type Review = {
 
 export type Inclusion = {
   id: string
-  type: string
+  type: InclusionType
   text: string
   userId: string
   tourInfoId: string

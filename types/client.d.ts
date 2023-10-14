@@ -1,6 +1,6 @@
 export type CarouselItem = {
   id: string
-  src: string
+  imageUrl: string
 }
 
 export type TourGuide = {
@@ -33,4 +33,6 @@ export type Like = {
   createdAt: Date
   updatedAt: Date
 }
+
+export type InclusionType = 'Plus' | 'Minus'
 

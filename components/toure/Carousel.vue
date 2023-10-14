@@ -1,6 +1,7 @@
 <template>
-  <v-carousel hide-delimiters>
-    <v-carousel-item :src="item.src" class="w-full" cover :key="item.id" color="#28B0A6" v-for="item in carouselItems">
+  <v-carousel hide-delimiters cycle show-arrows="hover" :interval="3000">
+    <v-carousel-item :src="item.imageUrl" class="w-full" cover :key="item.id" color="#28B0A6"
+      v-for="item in carouselItems ? carouselItems : [] ">
     </v-carousel-item>
   </v-carousel>
 </template>
@@ -8,9 +9,13 @@
 <script setup lang="ts">
 import type { CarouselItem } from '~/types/client';
 
-defineProps<{
-  carouselItems: CarouselItem[],
+const props = defineProps<{
+  carouselItems: CarouselItem[] | undefined,
 }>()
+
+if (props.carouselItems) {
+
+}
 
 </script>
 

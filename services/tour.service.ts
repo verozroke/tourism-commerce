@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { RegisterTourValidator } from "~/stores/TourDetailStore";
+import type { LikeTourValidator, RegisterTourValidator } from "~/stores/TourDetailStore";
 import type { MessageResponse } from "~/types/response";
 import type {
   DurationOption,
@@ -38,7 +38,6 @@ class TourService {
   }
 
   async registerToTour(body: RegisterTourValidator) {
-
     const { data } = await axios.post<MessageResponse>(`${this.baseUrl}/registered-tours/registered-tour`, body, {
       withCredentials: true,
       headers: {
@@ -49,7 +48,20 @@ class TourService {
     return data.message
   }
 
+  async likeTour(body: LikeTourValidator) {
+    const { data } = await axios.post<MessageResponse>(`${this.baseUrl}/likes/like`, body, {
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    return data.message
+  }
+
   async getTourLength(query: TourLengthQueryParams): Promise<number> {
+    // FIXME: decompose
+
     const { tags, ageGroups, specials, durations, priceRange, dateRange } = query
     const queryTags = tags?.map(tag => `tags[]=${tag}`).join('&')
     const queryAgeGroups = ageGroups?.map(ageGroup => `ageGroups[]=${ageGroup.replace('&', '%26')}`).join('&')
@@ -72,6 +84,7 @@ class TourService {
   }
 
   async getTourInfos(query: QueryParams): Promise<TourInfo[]> {
+    // FIXME: decompose
     const { tags, ageGroups, specials, durations, sortBy, desc, priceRange, dateRange, limit, page } = query
     const queryTags = tags?.map(tag => `tags[]=${tag}`).join('&')
     const queryAgeGroups = ageGroups?.map(ageGroup => `ageGroups[]=${ageGroup}`).join('&')
@@ -93,8 +106,8 @@ class TourService {
     return data
   }
 
-  async getFeaturedTours() {
-    const { data } = await axios.get(`${this.baseUrl}/tour-infos/featured`, {
+  async getFeaturedTours(): Promise<TourInfo[]> {
+    const { data } = await axios.get<TourInfo[]>(`${this.baseUrl}/tour-infos/featured`, {
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json'
@@ -104,7 +117,7 @@ class TourService {
     return data
   }
 
-  async getTopDestinations() {
+  async getTopDestinations(): Promise<TourInfo[]> {
     const { data } = await axios.get<TourInfo[]>(`${this.baseUrl}/tour-infos/top-destinations`, {
       withCredentials: true,
       headers: {
@@ -115,8 +128,8 @@ class TourService {
     return data
   }
 
-  async getTourInfoById(id: string) {
-    const { data } = await axios.get(`${this.baseUrl}/tour-infos/tour-info/${id}`, {
+  async getTourInfoById(id: string): Promise<TourInfo> {
+    const { data } = await axios.get<TourInfo>(`${this.baseUrl}/tour-infos/tour-info/${id}`, {
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json'
@@ -126,8 +139,8 @@ class TourService {
     return data
   }
 
-  async search(query: string) {
-    const { data } = await axios.get(`${this.baseUrl}/tour-infos/search/${query}`, {
+  async search(query: string): Promise<TourInfo[]> {
+    const { data } = await axios.get<TourInfo[]>(`${this.baseUrl}/tour-infos/search/${query}`, {
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json'

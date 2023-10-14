@@ -4,7 +4,7 @@ import tourService from '~/services/tour.service';
 import type {
   TourInfo
 } from '~/types/tour';
-import { debounce } from '~/utils/debounce';
+import { debounce } from '~/utils/utils';
 
 
 

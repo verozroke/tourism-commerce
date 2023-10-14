@@ -38,6 +38,7 @@
 <script setup lang="ts">
 import { useToast } from '~/hooks/use-toast';
 import type { TourInfo } from '~/types/tour';
+import { copyToureLink } from '~/utils/utils'
 
 const currentSlide = ref<number>(0)
 
@@ -45,11 +46,6 @@ const currentSlide = ref<number>(0)
 const router = useRouter()
 const { toast } = useToast()
 
-const copyToureLink = (id: string) => {
-  const link = `${window.origin}/toure/${id}`
-  navigator.clipboard.writeText(link);
-  toast.copied({ message: 'URL Copied successfully' })
-}
 
 const leftMove = () => {
   const recentItemRow: HTMLElement = document.getElementsByClassName('recent-item')[0] as HTMLElement
