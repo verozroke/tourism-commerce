@@ -4,7 +4,7 @@ import authService from '~/services/auth.service';
 import type { User } from '~/types/user';
 
 
-export const useUserStore = defineStore('userStore', () => {
+export const useUserStore = defineStore('UserStore', () => {
   const { toast } = useToast()
   const user = ref<User | null>(null)
 

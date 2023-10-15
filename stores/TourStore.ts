@@ -20,7 +20,7 @@ import { LIMIT_TOURS_IN_PAGE, spannings } from '~/constants/constants';
 
 
 
-export const useTourStore = defineStore('tourStore', () => {
+export const useTourStore = defineStore('TourStore', () => {
   const { toast } = useToast()
 
   // Data

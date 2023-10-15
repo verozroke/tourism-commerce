@@ -9,7 +9,6 @@ export const debounce = (fn: Function, ms = 300) => {
   };
 };
 
-
 export const copyToureLink = (id: string) => {
   const { toast } = useToast()
   const link = `${window.origin}/toure/${id}`
@@ -18,20 +17,25 @@ export const copyToureLink = (id: string) => {
 }
 
 
+export function isValidUrl(url: string) {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
 
 export function isValidDateFormat(dateString: string) {
-  // Regular expression for 'yyyy-mm-dd' format
   const dateFormatRegex = /^\d{4}-\d{2}-\d{2}$/;
 
   if (!dateFormatRegex.test(dateString)) {
-    return false; // Not in the correct format
+    return false;
   }
 
-  // Parse the date parts
   const [year, month, day] = dateString.split('-');
   const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 
-  // Check if the parsed date is valid
   return (
     date.getFullYear() === parseInt(year) &&
 
@@ -84,4 +88,9 @@ export function formatDate(inputDate: Date) {
   }
 
   return `${day}${daySuffix}, ${formattedDate}`;
+}
+
+export const isEmail = (email: string): boolean => {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
 }

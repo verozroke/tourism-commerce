@@ -59,6 +59,40 @@ class TourService {
     return data.message
   }
 
+  async getFavourites(userId: string): Promise<TourInfo[]> {
+    const { data } = await axios.get<TourInfo[]>(`${this.baseUrl}/tour-infos/${userId}/favourites`, {
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    return data
+  }
+
+  async getPendings(userId: string): Promise<TourInfo[]> {
+    const { data } = await axios.get<TourInfo[]>(`${this.baseUrl}/registered-tours/${userId}/pending`, {
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    return data
+  }
+
+  async getCloseds(userId: string): Promise<TourInfo[]> {
+    const { data } = await axios.get<TourInfo[]>(`${this.baseUrl}/registered-tours/${userId}/closed`, {
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    return data
+  }
+
+
   async getTourLength(query: TourLengthQueryParams): Promise<number> {
     // FIXME: decompose
 

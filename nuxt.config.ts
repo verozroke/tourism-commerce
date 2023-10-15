@@ -21,30 +21,30 @@ export default defineNuxtConfig({
   modules: [
     // ...
     '@pinia/nuxt',
-    '@vite-pwa/nuxt',
+    // '@vite-pwa/nuxt',
   ],
-  pwa: {
-    manifest: {
-      name: 'Touri',
-      short_name: 'Touri',
-      theme_color: '#28b0a6',
-      background_color: '#ffffff',
-      display: 'fullscreen',
-      orientation: 'portrait',
-      scope: '/',
-      start_url: '/',
-      icons: [
-        {
-          src: '/logo.png',
-          sizes: '144x144',
-          type: 'image/png'
-        }
-      ]
-    },
-    workbox: {
-      navigateFallback: '/'
-    }
-  },
+  // pwa: {
+  //   manifest: {
+  //     name: 'Touri',
+  //     short_name: 'Touri',
+  //     theme_color: '#28b0a6',
+  //     background_color: '#ffffff',
+  //     display: 'fullscreen',
+  //     orientation: 'portrait',
+  //     scope: '/',
+  //     start_url: '/',
+  //     icons: [
+  //       {
+  //         src: '/logo.png',
+  //         sizes: '144x144',
+  //         type: 'image/png'
+  //       }
+  //     ]
+  //   },
+  //   workbox: {
+  //     navigateFallback: '/'
+  //   }
+  // },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },

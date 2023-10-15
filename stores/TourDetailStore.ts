@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { useToast } from '~/hooks/use-toast';
 import tourService from '~/services/tour.service';
 import { useUserStore } from './UserStore';
-import type { TourInfo } from '~/types/tour';
+import type { RegTourStatusType, TourInfo } from '~/types/tour';
 import { addToRecentlyViewed } from '~/utils/utils';
 import { Like } from '~/types/client';
 
@@ -11,6 +11,7 @@ export type RegisterTourValidator = {
   date: Date
   travelers: string
   transports: string
+  status: RegTourStatusType
   tourInfoId: string
   userId: string
 }
@@ -20,7 +21,7 @@ export type LikeTourValidator = {
   tourInfoId: string
 }
 
-export const useTourDetailStore = defineStore('tourDetailStore', () => {
+export const useTourDetailStore = defineStore('TourDetailStore', () => {
   const { toast } = useToast()
   const userStore = useUserStore()
 
@@ -60,6 +61,7 @@ export const useTourDetailStore = defineStore('tourDetailStore', () => {
         date: new Date(formDate.value),
         travelers: formTravelers.value,
         transports: formTransports.value,
+        status: 'pending',
         userId: userStore.user!.id,
         tourInfoId: tourInfo.value.id,
       }

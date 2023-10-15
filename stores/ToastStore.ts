@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 
 export type ToastColor = '#28B0A6' | '#FA126C' | '#3c4dff'
 
-export const useToastStore = defineStore('toastStore', () => {
+export const useToastStore = defineStore('ToastStore', () => {
   const snackbar = ref<boolean>(false)
   const color = ref<ToastColor>('#28B0A6')
   const message = ref<string>('')

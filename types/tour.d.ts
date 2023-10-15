@@ -13,6 +13,7 @@ export type AgeGroupOption = '1 & Up' | '3 & Up' | '7 & Up' | '13 & Up' | '18 & 
 export type TagOption = 'Child Friendly' | 'Taking extra precautions' | 'Away from the chaos' | 'Epic Challenges' | 'Virtual Experiences'
 export type SpecialOption = 'Discounted deals' | 'Free Cancellations' | 'Private Groups' | 'New on Entrada' | 'Entrada Specials'
 export type SortByOption = 'Rating' | 'Relevance' | 'Price' | 'Title'
+export type RegTourStatusType = 'pending' | 'closed'
 export type SliderValue = [minValue: number, maxValue: number]
 
 export type TourInfo = {
@@ -50,6 +51,7 @@ export type RegisteredTour = {
   date: Date
   travelers: string
   transports: string
+  status: RegTourStatusType
   userId: string
   tourInfoId: string
   createdAt: Date

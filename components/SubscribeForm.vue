@@ -20,15 +20,13 @@
 <script setup lang="ts">
 import { useToast } from '~/hooks/use-toast';
 import emailService from '~/services/email.service';
+import { isEmail } from '~/utils/utils';
 
 const emailInput = ref<string>('')
 const isLoading = ref<boolean>(false)
 const { toast } = useToast()
 
-const isEmail = (email: string): boolean => {
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailPattern.test(email);
-}
+
 
 const onSubmit = async () => {
   try {

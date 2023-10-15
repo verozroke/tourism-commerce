@@ -9,7 +9,7 @@ import { debounce } from '~/utils/utils';
 
 
 
-export const useSearchStore = defineStore('searchStore', () => {
+export const useSearchStore = defineStore('SearchStore', () => {
   const { toast } = useToast()
 
   const dialog = ref(false)
