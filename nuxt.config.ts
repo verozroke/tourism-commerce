@@ -22,11 +22,11 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     // '@vite-pwa/nuxt',
   ],
-  runtimeConfig: {
-    app: {
-      BACKEND_URL: process.env.BACKEND_URL,
-    }
-  },
+  // runtimeConfig: {
+  //   app: {
+  //     BACKEND_URL: process.env.BACKEND_URL,
+  //   }
+  // },
   // pwa: {
   //   manifest: {
   //     name: 'Touri',

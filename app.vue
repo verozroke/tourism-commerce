@@ -14,15 +14,15 @@
 import ToastProvider from './providers/ToastProvider.vue';
 import SearchProvider from './providers/SearchProvider.vue';
 
-const config = useRuntimeConfig()
+// const config = useRuntimeConfig()
 
 const overflow = computed(() => {
   return window.location.pathname === '/login' || window.location.pathname === '/register' ? 'hidden' : 'auto'
 })
 
-onMounted(() => {
-  console.log(config.app.BACKEND_URL)
-})
+// onMounted(() => {
+//   console.log(config.app.BACKEND_URL)
+// })
 </script>
 
 
