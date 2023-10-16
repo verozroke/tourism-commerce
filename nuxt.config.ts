@@ -13,7 +13,6 @@ export default defineNuxtConfig({
   },
   pinia: {
     autoImports: [
-      // automatically imports `defineStore`
       'defineStore', // import { defineStore } from 'pinia'
       ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
     ],
@@ -23,6 +22,11 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     // '@vite-pwa/nuxt',
   ],
+  runtimeConfig: {
+    app: {
+      BACKEND_URL: process.env.BACKEND_URL,
+    }
+  },
   // pwa: {
   //   manifest: {
   //     name: 'Touri',

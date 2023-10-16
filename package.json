@@ -29,7 +29,6 @@
     "axios": "^1.5.0",
     "pinia": "^2.1.6",
     "sass": "^1.66.1",
-    "swiper": "^10.2.0",
     "tailwindcss-animate": "^1.0.7",
     "vue-frag": "^1.4.3",
     "vuetify": "^3.4.0-alpha.0"

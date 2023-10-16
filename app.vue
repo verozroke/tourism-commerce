@@ -11,17 +11,46 @@
 
 
 <script lang="ts" setup>
-import { register } from 'swiper/element/bundle';
 import ToastProvider from './providers/ToastProvider.vue';
 import SearchProvider from './providers/SearchProvider.vue';
-// FIXME: удалить
-register();
 
-// # FIXME: засвать работать .env
+const config = useRuntimeConfig()
+
+const overflow = computed(() => {
+  return window.location.pathname === '/login' || window.location.pathname === '/register' ? 'hidden' : 'auto'
+})
+
+onMounted(() => {
+  console.log(config.app.BACKEND_URL)
+})
 </script>
 
 
 <style>
+html,
+body {
+  overflow: v-bind(overflow);
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+  background-color: transparent;
+}
+
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  margin-block: .5em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(47, 47, 47, 0.836);
+  border-radius: 100vw;
+  transition: .4s;
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+}
+
 .page-enter-from {
   opacity: 0;
   transform: translateX(1000px);

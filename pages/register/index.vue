@@ -33,11 +33,4 @@ onMounted(async () => {
 
 </script>
 
-<style>
-/* FIXME: scroll hidden */
-
-/* html,
-body {
-  overflow: hidden;
-} */
-</style>
+<style></style>

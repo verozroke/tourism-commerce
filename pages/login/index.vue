@@ -32,9 +32,4 @@ onMounted(async () => {
 })
 </script>
 
-<style scoped>
-html,
-body {
-  overflow: hidden;
-}
-</style>
+<style ></style>

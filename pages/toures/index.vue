@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute inset-0 py-28">
+  <div class="absolute inset-x-0 py-28">
     <div class="container py-10  flex flex-col gap-10 w-full px-0">
       <div class="flex p-6 gap-3 items-center rounded-[20px]" style="border: 1px solid #E9ECEF">
         <span class="text-oxford flex-grow leading-5 text-lg font-medium">Showing 1 - {{ tourStore.pagesLength }} of {{

@@ -94,19 +94,7 @@ class TourService {
 
 
   async getTourLength(query: TourLengthQueryParams): Promise<number> {
-    // FIXME: decompose
-
-    const { tags, ageGroups, specials, durations, priceRange, dateRange } = query
-    const queryTags = tags?.map(tag => `tags[]=${tag}`).join('&')
-    const queryAgeGroups = ageGroups?.map(ageGroup => `ageGroups[]=${ageGroup.replace('&', '%26')}`).join('&')
-    const querySpecials = specials?.map(special => `specials[]=${special}`).join('&')
-    const queryDurations = durations?.map(duration => `durations[]=${duration}`).join('&')
-    const minValue = priceRange ? priceRange[0] : 0
-    const maxValue = priceRange ? priceRange[1] : 7500
-    const from = dateRange ? dateRange[0] : '1970-01-01';
-    const to = dateRange ? dateRange[1] : '2023-10-23';
-
-    const resultQuery = `${this.baseUrl}/tour-infos/length?${queryTags}&${queryAgeGroups}&${querySpecials}&${queryDurations}&priceRange[]=${minValue}&priceRange[]=${maxValue}&dateRange[]=${from}&dateRange[]=${to}`
+    const resultQuery = this.getResultQuery(query)
     const { data }: { data: { length: number } } = await axios.get(resultQuery, {
       withCredentials: true,
       headers: {
@@ -118,18 +106,9 @@ class TourService {
   }
 
   async getTourInfos(query: QueryParams): Promise<TourInfo[]> {
-    // FIXME: decompose
-    const { tags, ageGroups, specials, durations, sortBy, desc, priceRange, dateRange, limit, page } = query
-    const queryTags = tags?.map(tag => `tags[]=${tag}`).join('&')
-    const queryAgeGroups = ageGroups?.map(ageGroup => `ageGroups[]=${ageGroup}`).join('&')
-    const querySpecials = specials?.map(special => `specials[]=${special}`).join('&')
-    const queryDurations = durations?.map(duration => `durations[]=${duration}`).join('&')
-    const minValue = priceRange ? priceRange[0] : 0
-    const maxValue = priceRange ? priceRange[1] : 7500
-    const from = dateRange ? dateRange[0] : '1970-01-01';
-    const to = dateRange ? dateRange[1] : '2023-10-23';
+    const { limit, page } = query
 
-    const resultQuery = `${this.baseUrl}/tour-infos?sortBy=${sortBy}&${queryTags}&${queryAgeGroups}&${querySpecials}&${queryDurations}&desc=${!!desc}&priceRange[]=${minValue}&priceRange[]=${maxValue}&dateRange[]=${from}&dateRange[]=${to}&page=${page}&limit=${limit}`
+    const resultQuery = this.getResultQuery(query) + `&page=${page}&limit=${limit}`
     const { data } = await axios.get<TourInfo[]>(resultQuery, {
       withCredentials: true,
       headers: {
@@ -184,6 +163,18 @@ class TourService {
     return data
   }
 
+  private getResultQuery(query: QueryParams | TourLengthQueryParams): string {
+    const { tags, ageGroups, specials, durations, priceRange, dateRange } = query
+    const queryTags = tags?.map(tag => `tags[]=${tag}`).join('&')
+    const queryAgeGroups = ageGroups?.map(ageGroup => `ageGroups[]=${ageGroup.replace('&', '%26')}`).join('&')
+    const querySpecials = specials?.map(special => `specials[]=${special}`).join('&')
+    const queryDurations = durations?.map(duration => `durations[]=${duration}`).join('&')
+    const minValue = priceRange ? priceRange[0] : 0
+    const maxValue = priceRange ? priceRange[1] : 7500
+    const from = dateRange ? dateRange[0] : '1970-01-01';
+    const to = dateRange ? dateRange[1] : '2023-10-23';
+    return `${this.baseUrl}/tour-infos/length?${queryTags}&${queryAgeGroups}&${querySpecials}&${queryDurations}&priceRange[]=${minValue}&priceRange[]=${maxValue}&dateRange[]=${from}&dateRange[]=${to}`
+  }
 }
 
 const tourService = new TourService('http://localhost:4000');
