@@ -17,7 +17,11 @@ import SearchProvider from './providers/SearchProvider.vue';
 // const config = useRuntimeConfig()
 
 const overflow = computed(() => {
-  return window.location.pathname === '/login' || window.location.pathname === '/register' ? 'hidden' : 'auto'
+  if (window) {
+    return window.location.pathname === '/login' || window.location.pathname === '/register' ? 'hidden' : 'auto'
+  } else {
+    return 'auto'
+  }
 })
 
 // onMounted(() => {
