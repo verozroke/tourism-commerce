@@ -163,7 +163,7 @@ class TourService {
     return data
   }
 
-  private getResultQuery(query: QueryParams | TourLengthQueryParams): string {
+  getResultQuery(query: QueryParams | TourLengthQueryParams): string {
     const { tags, ageGroups, specials, durations, priceRange, dateRange } = query
     const queryTags = tags?.map(tag => `tags[]=${tag}`).join('&')
     const queryAgeGroups = ageGroups?.map(ageGroup => `ageGroups[]=${ageGroup.replace('&', '%26')}`).join('&')
