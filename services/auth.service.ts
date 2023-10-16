@@ -12,6 +12,7 @@ class AuthService {
   async login(body: LoginUserValidator) {
     const { data } = await axios.post(`${this.baseUrl}/auth/signin`, body, {
       withCredentials: true,
+      httpsAgent: true,
       headers: {
         'Content-Type': 'application/json'
       }
