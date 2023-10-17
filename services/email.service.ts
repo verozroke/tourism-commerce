@@ -10,7 +10,8 @@ class EmailService {
     const { data } = await axios.post(`${this.baseUrl}/emails/email`, { email }, {
       withCredentials: true,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       }
     })
 
