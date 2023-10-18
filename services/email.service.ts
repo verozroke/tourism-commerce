@@ -19,5 +19,5 @@ class EmailService {
   }
 }
 
-const emailService = new EmailService('https://tourism-commerce-backend.vercel.app');
+const emailService = new EmailService('http://localhost:4000');
 export default emailService

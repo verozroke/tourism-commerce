@@ -7,8 +7,8 @@
       <v-text-field label="Tour Name" class="w-full mt-6 mb-3" v-model="searchStore.query"
         @update:model-value="() => searchStore.search(searchStore.query)" style="font-size: 24px; !important"
         placeholder="Write a tour name here" color="#28B0A6" :counter="128"
-        @click:prepend-inner="() => console.log('hello')" prepend-inner-icon="mdi-magnify" variant="outlined"
-        :loading="searchStore.isLoading"></v-text-field>
+        @click:prepend-inner="() => searchStore.search(searchStore.query)" prepend-inner-icon="mdi-magnify"
+        variant="outlined" :loading="searchStore.isLoading"></v-text-field>
       <div class="flex flex-col gap-4 mb-6">
         <SearchItem v-for="tour in searchStore.searchedTourInfos" :key="tour.id" :tourInfo="tour" />
       </div>

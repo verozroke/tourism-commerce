@@ -55,5 +55,5 @@ class UserService {
 
 
 
-const userService = new UserService('https://tourism-commerce-backend.vercel.app');
+const userService = new UserService('http://localhost:4000');
 export default userService

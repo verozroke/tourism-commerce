@@ -18,5 +18,5 @@ class TourGuideService {
   }
 }
 
-const tourGuideService = new TourGuideService('https://tourism-commerce-backend.vercel.app');
+const tourGuideService = new TourGuideService('http://localhost:4000');
 export default tourGuideService

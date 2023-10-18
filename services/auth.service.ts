@@ -51,5 +51,5 @@ class AuthService {
 
 
 
-const authService = new AuthService('https://tourism-commerce-backend.vercel.app');
+const authService = new AuthService('http://localhost:4000');
 export default authService

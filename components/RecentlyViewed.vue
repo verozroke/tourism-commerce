@@ -57,7 +57,6 @@ const leftMove = () => {
 
 
   recentItemRow.style.transform = `translateX(-${currentSlide.value * 1432}px)`
-  console.log(currentSlide.value);
 
 }
 
@@ -71,7 +70,6 @@ const rightMove = () => {
 
   recentItemRow.style.transform = `translateX(-${currentSlide.value * 1432}px)`
 
-  console.log(currentSlide.value);
 
 }
 

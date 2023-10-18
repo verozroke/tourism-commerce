@@ -17,7 +17,7 @@ export const useUserStore = defineStore('UserStore', () => {
       const fetchedUser: User = await authService.fetchUser()
       user.value = fetchedUser
     } catch (err) {
-      console.log(err)
+      // console.log(err)
     }
   }
 
